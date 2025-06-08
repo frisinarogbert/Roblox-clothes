@@ -199,27 +199,6 @@ def download_clothing_image(cookie, clothing_id, asset_type="shirts"):
 
 def main():
     # Load saved settings
-
-        # Get PNG content
-        png_content = get_png_url(cookie, asset_id)
-        if not png_content:
-            cprint('red', "Failed to download PNG")
-            return False
-
-        # Save the image
-        file_name = f'clothes/{asset_type}/{clothing_id}_{random.randint(0, 100)}.png'
-        with open(file_name, 'wb') as f:
-            f.write(png_content)
-        
-        cprint('green', f'Successfully downloaded {file_name}')
-        return file_name
-
-    except Exception as e:
-        cprint('red', f"Error downloading clothing: {e}")
-        return False
-
-def main():
-    # Load saved settings
     settings = load_settings()
     
     # Set up command-line argument parsing
